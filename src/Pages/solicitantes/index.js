@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text,StyleSheet,Image,ScrollView,TouchableOpacity } from 'react-native';
 import styleExterno from 'E:/DANKI/approve/styles.js';
-import {useState} from "react";
 import { validatePathConfig } from '@react-navigation/native';
+import {db} from '../../../firebase.js';
 
 
 
@@ -498,7 +498,7 @@ import { validatePathConfig } from '@react-navigation/native';
 
 
 export default function solicitantes() {
-    const [solicitante,setarSolicitantes] = useState([
+    /*const [solicitante,setarSolicitantes] = useState([
         {
             nome: 'Carlos Costa',
             Telefone: '-',
@@ -542,20 +542,32 @@ export default function solicitantes() {
             imagem:{uri:'https://media-exp1.licdn.com/dms/image/C4D03AQFpiIqXkF5uWA/profile-displayphoto-shrink_800_800/0/1660493001008?e=1675296000&v=beta&t=A7pWp6BkgmDjz4XklqhP_Zs6j2HfyMcDYevaUXQB2yw'},
         },
     ]);
+    */
         
+    const [solicitantes,setarSolicitantes] = useState([]);
+
+    useEffect(()=>{
+		db.collection('solicitantes').onSnapshot(snapshot=>{
+			setarSolicitantes(snapshot.docs.map(function(doc){
+			return {info:doc.data()}
+			}));
+		})
+    },[])
+
     return(
         <View style={{flex:1}}>
         <ScrollView style={styleExterno.container3}> 
             {
-                solicitante.map((val)=>{
+                solicitantes.map((val)=>{
                     return(
                         <>   
-                            <Image style={{width:200,height:300,flexDirection:'column',alignSelf:'center',marginTop:10}} source={val.imagem}></Image>	
+                            <Image style={{width:200,height:300,flexDirection:'column',alignSelf:'center',marginTop:10}} source={{uri:val.info.imagem}}></Image>	
                             <View style  ={styleExterno.table}>
                                 <View onPress={()=>changeMusic(k)} style = {{width:'100%',flexDirection:'row',flexWrap:'wrap',justifyContent:'center'}}>
-                                    <Text style= {styleExterno.tableText}>Nome: {val.nome}</Text>
-                                    <Text style= {styleExterno.tableText}>Telefone: {val.Telefone}</Text>
-                                    <Text style= {styleExterno.tableText}>Ramal: {val.Ramal}</Text>
+                                    <Text style= {styleExterno.tableText}>Nome: {val.info.Nome}</Text>
+                                    <Text style= {styleExterno.tableText}>Setor: {val.info.Setor}</Text>
+                                    <Text style= {styleExterno.tableText}>Telefone: {val.info.Telefone}</Text>
+                                    <Text style= {styleExterno.tableText}>Ramal: {val.info.Ramal}</Text>
                                 </View>	                                                                                          
                             </View>                                                                                                                                        
                         </>
