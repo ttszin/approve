@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "api",
-    "slug": "api",
-    "version": "1.0.0",
+    "name": "Approve",
+    "slug": "Approve",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -21,10 +21,13 @@
       "supportsTablet": true
     },
     "android": {
+      "versionCode":2,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions":["INTERNET","SYSTEM_ALERT_WINDOW","WAKE_LOCK","MANAGE_DOCUMENTS","READ_INTERNAL_STORAGE","READ_PHONE_STATE","USE_FINGERPRINT","INSTALL_SHORTCUT","VIBRATE","READ_EXTERNAL_STORAGE","WRITE_EXTERNAL_STORAGE","WRITE_SETTINGS"],
+      "package": "com.matheuspc.appprogramacaointerativa"
     },
     "web": {
       "favicon": "./assets/favicon.png"
