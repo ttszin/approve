@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, Button, Text,Image, Animated,TouchableOpacity,ScrollView,KeyboardAvoidingView,TextInput } from 'react-native';
+import { View, Button, Text,Image, Animated,TouchableOpacity,ScrollView,KeyboardAvoidingView,TextInput  } from 'react-native';
 import Routes from "./src/routes.js";
-import { useState } from 'react';
 import 'react-native-gesture-handler';
 import styleExterno from 'E:/DANKI/approve/styleLogin.js';
 import * as OpenAnything from 'react-native-openanything';
