@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text,StyleSheet,Image,ScrollView,TouchableOpacity } from 'react-native';
 import styleExterno from 'E:/DANKI/approve/styles.js';
-import {useState} from "react";
 import { validatePathConfig } from '@react-navigation/native';
-
+import {db} from '../../../firebase.js';
 
 
 {/*
@@ -509,7 +508,8 @@ import { validatePathConfig } from '@react-navigation/native';
 
 
 export default function aprovadores() {
-    const [aprovador,setarAprovadores] = useState([
+    /*
+	const [aprovador,setarAprovadores] = useState([
       {
           nome: 'Emerson Resing',
           Telefone: '(53) 999959232',
@@ -542,20 +542,32 @@ export default function aprovadores() {
       },
 
     ])
-        
+    */
+
+    const [aprovadores,setarAprovadores] = useState([]);
+
+    useEffect(()=>{
+		db.collection('aprovadores').onSnapshot(snapshot=>{
+			setarAprovadores(snapshot.docs.map(function(doc){
+			return {info:doc.data()}
+			}));
+		})
+    },[])
+  
     return(
         <View style={{flex:1}}>
         <ScrollView style={styleExterno.container3}> 
             {
-                aprovador.map((val)=>{
+                aprovadores.map((val)=>{
                     return(
                         <>   
-                            <Image style={{width:200,height:300,flexDirection:'column',alignSelf:'center',marginTop:10}} source={val.imagem}></Image>	
+                            <Image style={{width:200,height:300,flexDirection:'column',alignSelf:'center',marginTop:10}} source={{ uri: val.info.imagem}}></Image>	
                             <View style  ={styleExterno.table}>
                                 <View onPress={()=>changeMusic(k)} style = {{width:'100%',flexDirection:'row',flexWrap:'wrap',justifyContent:'center'}}>
-                                    <Text style= {styleExterno.tableText}>Nome: {val.nome}</Text>
-                                    <Text style= {styleExterno.tableText}>Telefone: {val.Telefone}</Text>
-                                    <Text style= {styleExterno.tableText}>Ramal: {val.Ramal}</Text>
+                                    <Text style= {styleExterno.tableText}>Nome: {val.info.Nome}</Text>
+									<Text style= {styleExterno.tableText}>Ramal: {val.info.Ramal}</Text>
+                                    <Text style= {styleExterno.tableText}>Telefone: {val.info.Telefone}</Text>
+                                    <Text style= {styleExterno.tableText}>Setor: {val.info.Setor}</Text>
                                 </View>	                                                                                          
                             </View>                                                                                                                                        
                         </>
@@ -566,4 +578,5 @@ export default function aprovadores() {
         </ScrollView>
         </View>
     );
+	
 }
