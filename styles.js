@@ -7,29 +7,27 @@ export default styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header:{
-    backgroundColor:'#4287f5',
     alignItems:'center',
-    width:'100%',
-    height:'15%',
+    margin:5,
+    height:'30%',
     justifyContent:'center',
-
   },
   logo:{
-    width:250,
-    height:100,
+    width:100,
+    height:40,
   },
   icones:{
     height:80,
     width:80,
   },
   ordemdeicones:{
-    marginTop:'10%',
     justifyContent:'center',
+    marginTop:'3%',
     flexDirection:'row',
     flexWrap:'wrap',
     height:'100%',
     width:'100%',
-
+    marginBottom:"10%"
   },
 
   box:{
