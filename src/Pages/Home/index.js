@@ -1,12 +1,13 @@
 //HOME
 
 import React from 'react';
-import { View, Button, Text,StyleSheet,Image, Animated,TouchableOpacity,ScrollView, ViewComponent } from 'react-native';
+import { View, Button, Text,StyleSheet,Image, Animated,TouchableOpacity,ScrollView, ViewComponent,ImageBackground } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { render } from 'react-dom';
 import styleExterno from 'E:/DANKI/approve/styles.js';
 import { useWindowDimensions } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+
 
 
 
@@ -16,26 +17,15 @@ export default function Home({navigation}) {
         <ScrollView style={styleExterno.container}>
             <StatusBar hidden/>
             <View style={styleExterno.header}>
-                <Image 
-                    style={styleExterno.logo}
-                    source={require('E:/DANKI/approve/icones/logo.png')}
-                />
+                <ImageBackground source={require('E:/DANKI/approve/icones/planta.jpg')} style={{flex:1,width:'100%',borderColor:'#6393f2',borderWidth:2,justifyContent:'flex-end',alignItems:'flex-end'}}>
+                    <Image 
+                        style={styleExterno.logo}
+                        source={require('E:/DANKI/approve/icones/logo.png')}
+                    />
+                </ImageBackground>
             </View>
 
-
-            <View>
-                <Text 
-                style={{
-                    paddingTop:'2%',
-                    fontSize:20,
-                    fontFamily:'monospace',
-                    textAlign:'center',
-                }}
-                >
-                    SELECIONE A TAREFA A SER REALIZADA: 
-                </Text>
-
-                
+            <View style ={{width:'100%',height:'68.5%',marginBottom:100,}}>  
                 <View style={styleExterno.ordemdeicones}>
                 
                     <TouchableOpacity style={styleExterno.box} onPress={() => navigation.navigate('icamento')}>
@@ -196,4 +186,3 @@ export default function Home({navigation}) {
   );
              
 }
-
