@@ -51,7 +51,7 @@ export default function quimicosperigosos({ navigation }) {
           />
           {/* BOTÃO 1*/}
           <TouchableOpacity 
-            onPress={() => navigation.navigate('solicitantes')}
+            onPress={() => navigation.navigate('solicitantesPerigosas')}
             style={{ 
               textAlign:'center',
               marginRight:'15%',
@@ -80,7 +80,7 @@ export default function quimicosperigosos({ navigation }) {
           />
           {/* BOTÃO 2*/}
           <TouchableOpacity 
-            onPress={() => navigation.navigate('aprovadores')}
+            onPress={() => navigation.navigate('aprovadoresPerigosas')}
             style={{ 
               textAlign:'center',
               borderRadius:50,
