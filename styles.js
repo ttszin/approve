@@ -1,3 +1,4 @@
+import reactDom from 'react-dom';
 import { StyleSheet} from 'react-native';
 
 
@@ -38,7 +39,6 @@ export default styles = StyleSheet.create({
     borderColor:'#999',
     borderWidth:5,
   },
-
 
 
   //===============================================================================================================
@@ -85,13 +85,64 @@ export default styles = StyleSheet.create({
     textAlign:'center',
   },
 
+
+  //#######################################################################
+
+  tableTextIcamentoImagem:{
+    width:'100%',
+    height:'20%',
+    color:'black',
+  },
+
+  
+  tableTextIcamentoAprovaImagem:{
+    width:'100%',
+    height:'35%',
+    color:'black',
+    paddingBottom:10
+  },
+
+  tableIcamentoImagem:{
+    margin:10,
+    padding:10,
+    borderColor:'#5BFC7B',
+    borderWidth:3,
+    borderRadius:10
+  },
+
+
+  //#######################################################################
+
+
+
+  tableTextIcamento:{
+    width:'100%',
+    height:'20%',
+    color:'black',
+  },
+
+  
+  tableTextIcamentoAprova:{
+    width:'100%',
+    height:'35%',
+    color:'black',
+    paddingBottom:10
+  },
+
+  tableIcamento:{
+    flexDirection:'row',
+    padding:10
+  },
+
+  //#######################################################################
+
   table:{
     flexDirection:'row',
     padding:35 ,
     borderBottomColor:'black',
     borderBottomWidth:3,
-
   },
+
 
   container3:{
     backgroundColor:'#fff',
