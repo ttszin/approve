@@ -53,7 +53,7 @@ export default function icamento({ navigation }) {
           />
           {/* BOTÃO 1*/}
           <TouchableOpacity 
-            onPress={() => navigation.navigate('solicitantes')}
+            onPress={() => navigation.navigate('solicitantes_Icamento')}
             style={{ 
               textAlign:'center',
               marginRight:'15%',
@@ -82,7 +82,7 @@ export default function icamento({ navigation }) {
           />
           {/* BOTÃO 2*/}
           <TouchableOpacity 
-            onPress={() => navigation.navigate('aprovadores')}
+            onPress={() => navigation.navigate('aprovadoresIcamento')}
             style={{ 
               textAlign:'center',
               borderRadius:50,
@@ -107,7 +107,7 @@ export default function icamento({ navigation }) {
         
         <View style={{marginLeft:'11%',alignItems:'center',justifyContent:'center',flexDirection:'row',flexWrap:'wrap',marginTop:'5%'}}>
           <View style={{marginLeft:'5%',width:50,height:50,marginRight:'1%'}}>
-            <AntDesign name="pdffile1" size={43} color="#3585fc" />
+            {/*<AntDesign name="pdffile1" size={43} color="#3585fc" />*/}
           </View>
           {/* BOTÃO 2*/}
           <TouchableOpacity 
@@ -119,6 +119,7 @@ export default function icamento({ navigation }) {
               backgroundColor:'#3585fc',
             }}
           >
+            {/*
             <Text
               style ={{
                 fontFamily:'monospace', 
@@ -131,6 +132,7 @@ export default function icamento({ navigation }) {
                 marginLeft:'26%',
               }}
             >PG</Text>
+            */}
           </TouchableOpacity>  
         </View>
 

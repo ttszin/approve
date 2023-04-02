@@ -49,7 +49,7 @@ export default function espacoconfinado({ navigation }) {
           />
           {/* BOTÃO 1*/}
           <TouchableOpacity 
-            onPress={() => navigation.navigate('solicitantes')}
+            onPress={() => navigation.navigate('solicitantes_Confinado')}
             style={{ 
               textAlign:'center',
               marginRight:'15%',
@@ -78,7 +78,7 @@ export default function espacoconfinado({ navigation }) {
           />
           {/* BOTÃO 2*/}
           <TouchableOpacity 
-            onPress={() => navigation.navigate('aprovadores')}
+            onPress={() => navigation.navigate('aprovadoresConfinado')}
             style={{ 
               textAlign:'center',
               borderRadius:50,

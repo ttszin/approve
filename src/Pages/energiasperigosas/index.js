@@ -78,7 +78,7 @@ export default function energiasperigosas({ navigation }) {
           />
           {/* BOTÃO 2*/}
           <TouchableOpacity 
-            onPress={() => navigation.navigate('aprovadores')}
+            onPress={() => navigation.navigate('aprovadoresPerigosas')}
             style={{ 
               textAlign:'center',
               borderRadius:50,

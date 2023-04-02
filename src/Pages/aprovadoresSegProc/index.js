@@ -5,13 +5,13 @@ import { validatePathConfig } from '@react-navigation/native';
 import {db} from '../../../firebase.js';
 
 
-export default function aprovadoresEspecial() {
+export default function aprovadoresSegProc() {
 
-    const [aprovadoresEspecial,setarAprovadoresEspecial] = useState([]);
+    const [aprovadoresEnergiasQuimicos,setarAprovadoresQuimicos] = useState([]);
 
     useEffect(()=>{
-		db.collection('aprovadores_especial').onSnapshot(snapshot=>{
-			setarAprovadoresEspecial(snapshot.docs.map(function(doc){
+		db.collection('aprovadores_quimicos').onSnapshot(snapshot=>{
+			setarAprovadoresQuimicos(snapshot.docs.map(function(doc){
 			return {info:doc.data()}
 			}));
 		})
@@ -21,7 +21,7 @@ export default function aprovadoresEspecial() {
         <View style={{flex:1}}>
         <ScrollView style={styleExterno.container3}> 
             {
-                aprovadoresEspecial.map((val)=>{
+                aprovadoresEnergiasQuimicos.map((val)=>{
                     if (val.info.Imagem != undefined & val.info.Imagem != ""){
                         return(
                             <>   
