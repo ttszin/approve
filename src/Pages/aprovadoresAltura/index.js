@@ -32,7 +32,6 @@ export default function aprovadoresAltura() {
                                         <Text style= {styleExterno.tableTextIcamentoImagem}>Ramal: {val.info.Ramal}</Text>
                                         <Text style= {styleExterno.tableTextIcamentoImagem}>Telefone: {val.info.Telefone}</Text>
                                         <Text style= {styleExterno.tableTextIcamentoImagem}>Setor: {val.info.Setor}</Text>
-                                        <Text style= {styleExterno.tableTextIcamentoAprovaImagem}>Aprova: {val.info.Permitido}</Text>
                                     </View>	                                                                                          
                                 </View>                                                                                                                                        
                             </>
