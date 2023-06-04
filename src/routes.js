@@ -133,6 +133,7 @@ export default function Routes(){
             name="search" 
             component={search} 
             options={{
+                headerShown:false,
                 tabBarIcon:({size,color,focused})=> {
                     if(focused){
                         return <Ionicons name="search" size={size} color={color}/>
@@ -147,6 +148,7 @@ export default function Routes(){
             name="PG's" 
             component={pgs} 
             options={{
+                headerShown:false,
                 tabBarIcon:({size,color,focused})=> {
                     if(focused){
                         return <MaterialCommunityIcons name="shield-check" size={size} color={color}/>
