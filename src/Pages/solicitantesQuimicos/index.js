@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text,StyleSheet,Image,ScrollView,TouchableOpacity } from 'react-native';
-import styleExterno from 'E:/DANKI/approve/styles.js';
+import styleExterno from '../../../styles.js';
 import { validatePathConfig } from '@react-navigation/native';
 import {db} from '../../../firebase.js';
 

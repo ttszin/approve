@@ -2,7 +2,7 @@
   "expo": {
     "name": "Approve",
     "slug": "Approve",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -12,13 +12,15 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/ab39c839-f788-4679-9722-c6a18bb99a4b"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.matheuspc.appprogramacaointerativa"
     },
     "android": {
       "versionCode": 2,
@@ -49,6 +51,9 @@
       "eas": {
         "projectId": "ab39c839-f788-4679-9722-c6a18bb99a4b"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

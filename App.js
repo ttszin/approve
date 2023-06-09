@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Button, Text,Image, Animated,TouchableOpacity,ScrollView,KeyboardAvoidingView,TextInput  } from 'react-native';
 import Routes from "./src/routes.js";
 import 'react-native-gesture-handler';
-import styleExterno from 'E:/DANKI/approve/styleLogin.js';
+import styleExterno from './styleLogin.js';
 import * as OpenAnything from 'react-native-openanything';
 import { useFonts } from 'expo-font';
 import {FuzzyBubbles_400Regular,FuzzyBubbles_700Bold,} from '@expo-google-fonts/fuzzy-bubbles';

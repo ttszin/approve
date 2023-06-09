@@ -2,7 +2,7 @@
 
 import React, {useEffect} from 'react';
 import { View, Button, Text,StyleSheet,Image,ScrollView,TouchableOpacity } from 'react-native';
-import styleExterno from 'E:/DANKI/approve/styles.js';
+import styleExterno from '../../../styles.js';
 
 
 export default function quimicosperigosos({ navigation }) {

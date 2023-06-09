@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Button, Text,StyleSheet,Image, Animated,TouchableOpacity,ScrollView, ViewComponent,ImageBackground } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { render } from 'react-dom';
-import styleExterno from 'E:/DANKI/approve/styles.js';
+import styleExterno from '../../../styles.js';
 import { useWindowDimensions } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
@@ -17,10 +17,10 @@ export default function Home({navigation}) {
         <ScrollView style={styleExterno.container}>
             <StatusBar hidden/>
             <View style={styleExterno.header}>
-                <ImageBackground source={require('E:/DANKI/approve/icones/planta.jpg')} style={{flex:1,width:'100%',borderColor:'#6393f2',borderWidth:2,justifyContent:'flex-end',alignItems:'flex-end'}}>
+                <ImageBackground source={require('../../../icones/planta.jpg')} style={{flex:1,width:'100%',borderColor:'#6393f2',borderWidth:2,justifyContent:'flex-end',alignItems:'flex-end'}}>
                     <Image 
                         style={styleExterno.logo}
-                        source={require('E:/DANKI/approve/icones/logo.png')}
+                        source={require('../../../icones/logo.png')}
                     />
                 </ImageBackground>
             </View>
