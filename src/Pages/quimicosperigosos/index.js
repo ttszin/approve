@@ -11,7 +11,7 @@ export default function quimicosperigosos({ navigation }) {
     <ScrollView style={styleExterno.container2}> 
       <View style={{alignItems:'center'}}>
         <View style={styleExterno.boxsegundatela}>   
-          <Image style={styleExterno.iconesmeio} source={require('E:/DANKI/approve/icones/quimicosPerigosos.png')}/>
+          <Image style={styleExterno.iconesmeio} source={require('../../../icones/quimicosPerigosos.png')}/>
           <Text style ={{fontFamily:'monospace', fontSize:20,textAlign:'center',color:'#6393f2'}}>Químicos Perigosos</Text>
         </View>
         
@@ -46,7 +46,7 @@ export default function quimicosperigosos({ navigation }) {
         
         <View style={{marginLeft:'10%',alignItems:'center',justifyContent:'center',flexDirection:'row',flexWrap:'wrap'}}>
           <Image 
-          source={require('E:/DANKI/approve/icones/solicitante.png')}
+          source={require('../../../icones/solicitante.png')}
           style={{marginLeft:'5%',width:50,height:50,marginRight:'1%'}}
           />
           {/* BOTÃO 1*/}
@@ -75,7 +75,7 @@ export default function quimicosperigosos({ navigation }) {
 
         <View style={{marginLeft:'10%',alignItems:'center',justifyContent:'center',flexDirection:'row',flexWrap:'wrap',marginTop:'10%'}}>
           <Image 
-            source={require('E:/DANKI/approve/icones/aprovador.png')}
+            source={require('../../../icones/aprovador.png')}
             style={{marginLeft:'5%',width:50,height:50,marginRight:'1%'}}
           />
           {/* BOTÃO 2*/}

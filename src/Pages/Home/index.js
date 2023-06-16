@@ -49,7 +49,7 @@ export default function Home({navigation}) {
                         <TouchableOpacity style={styleExterno.box} onPress={() => navigation.navigate('energiasperigosas')}>
                             <Image 
                                 style={styleExterno.icones}
-                                source={require('E:/DANKI/approve/icones/energiasperigosas.png')}
+                                source={require('../../../icones/energiasperigosas.png')}
                             />
                             <Text
                                 style = {{
@@ -69,7 +69,7 @@ export default function Home({navigation}) {
                         <TouchableOpacity style={styleExterno.box} onPress={() => navigation.navigate('equipamentosmoveis')}>
                         <Image 
                             style={styleExterno.icones}
-                            source={require('E:/DANKI/approve/icones/equipamentosMoveis.png')}
+                            source={require('../../../icones/equipamentosMoveis.png')}
                         />
                         <Text
                             style = {{
@@ -88,7 +88,7 @@ export default function Home({navigation}) {
                         <TouchableOpacity style={styleExterno.box} onPress={() => navigation.navigate('espacoconfinado')}>
                         <Image 
                             style={styleExterno.icones}
-                            source={require('E:/DANKI/approve/icones/EspacoConfinado.png')}
+                            source={require('../../../icones/EspacoConfinado.png')}
                         />
                         <Text
                             style = {{
@@ -107,7 +107,7 @@ export default function Home({navigation}) {
                         <TouchableOpacity style={styleExterno.box} onPress={() => navigation.navigate('trabalhoaltura')}>
                         <Image
                             style={styleExterno.icones}
-                            source={require('E:/DANKI/approve/icones/icamento.png')}
+                            source={require('../../../icones/icamento.png')}
                         />
                         <Text
                             style = {{
@@ -126,7 +126,7 @@ export default function Home({navigation}) {
                         <TouchableOpacity style={styleExterno.box} onPress={() => navigation.navigate('quimicosperigosos')}>
                         <Image
                             style={styleExterno.icones}
-                            source={require('E:/DANKI/approve/icones/quimicosPerigosos.png')}
+                            source={require('../../../icones/quimicosPerigosos.png')}
                         />
                         <Text
                             style = {{
@@ -145,7 +145,7 @@ export default function Home({navigation}) {
                         <TouchableOpacity style={styleExterno.box} onPress={() => navigation.navigate('segurancadoprocesso')}>
                         <Image
                             style={styleExterno.icones}
-                            source={require('E:/DANKI/approve/icones/segurancaDoProcesso.png')}
+                            source={require('../../../icones/segurancaDoProcesso.png')}
                         />
                         <Text
                             style = {{
@@ -164,7 +164,7 @@ export default function Home({navigation}) {
                         <TouchableOpacity style={styleExterno.box} onPress={() => navigation.navigate('especialar')}>
                         <Image
                             style={styleExterno.icones}
-                            source={require('E:/DANKI/approve/icones/especialar.png')}
+                            source={require('../../../icones/especialar.png')}
                         />
                         <Text
                             style = {{

@@ -48,7 +48,7 @@ export default function icamento({ navigation }) {
         
         <View style={{marginLeft:'10%',alignItems:'center',justifyContent:'center',flexDirection:'row',flexWrap:'wrap'}}>
           <Image 
-          source={require('E:/DANKI/approve/icones/solicitante.png')}
+          source={require('../../../icones/solicitante.png')}
           style={{marginLeft:'5%',width:50,height:50,marginRight:'1%'}}
           />
           {/* BOTÃO 1*/}
@@ -77,7 +77,7 @@ export default function icamento({ navigation }) {
 
         <View style={{marginLeft:'10%',alignItems:'center',justifyContent:'center',flexDirection:'row',flexWrap:'wrap',marginTop:'5%'}}>
           <Image 
-            source={require('E:/DANKI/approve/icones/aprovador.png')}
+            source={require('../../../icones/aprovador.png')}
             style={{marginLeft:'5%',width:50,height:50,marginRight:'1%'}}
           />
           {/* BOTÃO 2*/}
