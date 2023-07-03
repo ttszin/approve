@@ -12,12 +12,11 @@ import { useFonts } from 'expo-font';
 import {FuzzyBubbles_400Regular,FuzzyBubbles_700Bold,} from '@expo-google-fonts/fuzzy-bubbles';
 import AppLoading from 'expo-app-loading';
 import {db} from './firebase.js';
+import { LogBox } from 'react-native';
 
 const Stack = createNativeStackNavigator()
 
-useEffect(()=>{
-  console.disableYellowBox = true;
-},[])
+LogBox.ignoreAllLogs();
 
 export default function App(){
   const[ fontsLoaded ] = useFonts({

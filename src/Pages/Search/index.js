@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Button, Text,StyleSheet,TextInput } from 'react-native';
 import {db} from '../../../firebase.js';
 import styleExterno from '../../../styles.js'
-import {Picker} from '@react-native-picker/picker';
+//import {Picker} from '@react-native-picker/picker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons,  AntDesign} from '@expo/vector-icons';
 //import { defined } from 'react-native-reanimated';
