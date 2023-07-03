@@ -15,6 +15,9 @@ import {db} from './firebase.js';
 
 const Stack = createNativeStackNavigator()
 
+useEffect(()=>{
+  console.disableYellowBox = true;
+},[])
 
 export default function App(){
   const[ fontsLoaded ] = useFonts({
