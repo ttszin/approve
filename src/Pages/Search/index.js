@@ -1,19 +1,21 @@
 // src/Page1.js
 
 import React, { useEffect, useState } from 'react';
-import { View, Button, Text,StyleSheet,TextInput } from 'react-native';
+import { View, Button, Text,StyleSheet,TextInput,Alert  } from 'react-native';
 import {db} from '../../../firebase.js';
 import styleExterno from '../../../styles.js'
 //import {Picker} from '@react-native-picker/picker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons,  AntDesign} from '@expo/vector-icons';
 //import { defined } from 'react-native-reanimated';
+import { LogBox } from 'react-native';
+import DatePicker from 'react-native-datepicker';
 
 export default function search({route,navigation}) {
 
   const [matricula,setMatricula] = useState('');
 
-
+  LogBox.ignoreAllLogs();
   /*const [apontamentos, setApontamentos] = useState(0);
 
   useEffect(()=>{
@@ -84,7 +86,7 @@ export default function search({route,navigation}) {
           <Picker.Item label="MECATERC" value="MECATERC" />
   </Picker>
 
-  */
+  x
   
   
 
@@ -109,25 +111,99 @@ export default function search({route,navigation}) {
 
     console.log('Ordem enviada com sucesso');
   }
+  */
 
-  return(
-    <View style={styles.container}>
-      
-      <View style={{flexDirection:'row',width:'100%',height:40,borderWidth:2,borderColor:'blue',margin:10,alignContent:'center',justifyContent:'center'}}>
-        <Text
-        style = {styleExterno.registrationText}>Insira o seu número de matrícula: </Text>
-        <TextInput
-          style = {styles.input}
-          placeholderTextColor={'black'}
-          value = {matricula}
-          onChangeText={(val) => setCurrentOrdem(val)}
-        />
+  const [orderNumber, setOrderNumber] = useState('');
+  const [registrationNumber, setRegistrationNumber] = useState('');
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [text, setText] = useState('');
 
-      </View>
-      
-      <TouchableOpacity style = {{width:'10%',alignContent:'center',borderColor:'red',borderWidth:3}} onPress={()=>sendApontamento()}>
-        <AntDesign name="dingding" size={24} color="rgb(52,119,235)" />
+  const handleSubmit = () => {
+    db
+      .firestore()
+      .collection('apontamentos')
+      .add({
+        orderNumber,
+        registrationNumber,
+        startTime: startTime ? startTime.toString() : null,
+        endTime: endTime ? endTime.toString() : null,
+        text,
+      })
+      .then(() => {
+        Alert.alert('Sucesso', 'As informações foram registradas no Firebase.');
+        // Limpar campos após o registro
+        setOrderNumber('');
+        setRegistrationNumber('');
+        setStartTime(null);
+        setEndTime(null);
+        setText('');
+      })
+      .catch((error) => {
+        Alert.alert('Erro', 'Ocorreu um erro ao registrar as informações: ' + error.message);
+      });
+  };
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
+      <TextInput
+        style={{ marginBottom: 10 }}
+        placeholder="Número de ordem"
+        value={orderNumber}
+        onChangeText={setOrderNumber}
+      />
+      <TextInput
+        style={{ marginBottom: 10 }}
+        placeholder="Número de matrícula"
+        value={registrationNumber}
+        onChangeText={setRegistrationNumber}
+      />
+      <TouchableOpacity
+        style={{ marginBottom: 10, padding: 10, backgroundColor: '#f0f0f0' }}
+        onPress={() => this.startTimePicker.onPressDate()}
+      >
+        <Text>{startTime ? startTime.toLocaleTimeString() : 'Selecionar hora inicial'}</Text>
       </TouchableOpacity>
+      <DatePicker
+        ref={(ref) => (this.startTimePicker = ref)}
+        style={{ width: 200, marginBottom: 10 }}
+        date={startTime}
+        mode="time"
+        format="HH:mm"
+        confirmBtnText="Confirmar"
+        cancelBtnText="Cancelar"
+        onDateChange={(time) => setStartTime(time)}
+        customStyles={{
+          dateInput: { borderWidth: 0 },
+        }}
+      />
+      <TouchableOpacity
+        style={{ marginBottom: 10, padding: 10, backgroundColor: '#f0f0f0' }}
+        onPress={() => this.endTimePicker.onPressDate()}
+      >
+        <Text>{endTime ? endTime.toLocaleTimeString() : 'Selecionar hora final'}</Text>
+      </TouchableOpacity>
+      <DatePicker
+        ref={(ref) => (this.endTimePicker = ref)}
+        style={{ width: 200, marginBottom: 10 }}
+        date={endTime}
+        mode="time"
+        format="HH:mm"
+        confirmBtnText="Confirmar"
+        cancelBtnText="Cancelar"
+        onDateChange={(time) => setEndTime(time)}
+        customStyles={{
+          dateInput: { borderWidth: 0 },
+        }}
+      />
+      <TextInput
+        style={{ marginBottom: 10, height: 100 }}
+        placeholder="Texto longo"
+        multiline
+        value={text}
+        onChangeText={setText}
+      />
+      <Button title="Registrar" onPress={handleSubmit} />
     </View>
   );
 }
