@@ -9,7 +9,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons,  AntDesign} from '@expo/vector-icons';
 //import { defined } from 'react-native-reanimated';
 import { LogBox } from 'react-native';
-import DatePicker from 'react-native-datepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import 'firebase/compat/firestore';
 
 export default function search({route,navigation}) {
 
@@ -115,33 +117,65 @@ export default function search({route,navigation}) {
 
   const [orderNumber, setOrderNumber] = useState('');
   const [registrationNumber, setRegistrationNumber] = useState('');
-  const [startTime, setStartTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
+  const [startTime, setStartTime] = useState(new Date());
+  const [endTime, setEndTime] = useState(new Date());
   const [text, setText] = useState('');
+  const [isStartTimePickerVisible, setStartTimePickerVisible] = useState(false);
+  const [isEndTimePickerVisible, setEndTimePickerVisible] = useState(false);
 
-  const handleSubmit = () => {
-    db
-      .firestore()
-      .collection('apontamentos')
-      .add({
+  const showStartTimePicker = () => {
+    setStartTimePickerVisible(true);
+    setStartTimePickerVisible(true);
+  };
+
+  const hideStartTimePicker = () => {
+    setStartTimePickerVisible(false);
+    setStartTimePickerVisible(false);
+  };
+
+  const handleStartTimeConfirm = (selectedTime) => {
+    if (selectedTime) {
+      setStartTime(selectedTime);
+      hideStartTimePicker();
+
+    }
+  };
+
+  const showEndTimePicker = () => {
+    setEndTimePickerVisible(true);
+  };
+
+  const hideEndTimePicker = () => {
+    setEndTimePickerVisible(false);
+  };
+
+  const handleEndTimeConfirm = (selectedTime) => {
+    if (selectedTime) {
+      setEndTime(selectedTime);
+      hideEndTimePicker();
+    }
+  };
+
+  const handleSubmit = async () => {
+    try {
+      await db.firestore().collection('apontamentos').add({
         orderNumber,
         registrationNumber,
         startTime: startTime ? startTime.toString() : null,
         endTime: endTime ? endTime.toString() : null,
         text,
-      })
-      .then(() => {
-        Alert.alert('Sucesso', 'As informações foram registradas no Firebase.');
-        // Limpar campos após o registro
-        setOrderNumber('');
-        setRegistrationNumber('');
-        setStartTime(null);
-        setEndTime(null);
-        setText('');
-      })
-      .catch((error) => {
-        Alert.alert('Erro', 'Ocorreu um erro ao registrar as informações: ' + error.message);
       });
+
+      Alert.alert('Sucesso', 'As informações foram registradas no Firebase.');
+      // Limpar campos após o registro
+      setOrderNumber('');
+      setRegistrationNumber('');
+      setStartTime(new Date());
+      setEndTime(new Date());
+      setText('');
+    } catch (error) {
+      Alert.alert('Erro', 'Ocorreu um erro ao registrar as informações: ' + error.message);
+    }
   };
 
   return (
@@ -158,43 +192,32 @@ export default function search({route,navigation}) {
         value={registrationNumber}
         onChangeText={setRegistrationNumber}
       />
-      <TouchableOpacity
-        style={{ marginBottom: 10, padding: 10, backgroundColor: '#f0f0f0' }}
-        onPress={() => this.startTimePicker.onPressDate()}
-      >
-        <Text>{startTime ? startTime.toLocaleTimeString() : 'Selecionar hora inicial'}</Text>
-      </TouchableOpacity>
-      <DatePicker
-        ref={(ref) => (this.startTimePicker = ref)}
-        style={{ width: 200, marginBottom: 10 }}
+      <Button title="Insira a hora inicial" onPress={showStartTimePicker}/>
+      <Text>{startTime.toLocaleTimeString('en-GB')}</Text>
+      <DateTimePickerModal
+        isVisible={isStartTimePickerVisible}
+        mode="time"
         date={startTime}
-        mode="time"
-        format="HH:mm"
-        confirmBtnText="Confirmar"
-        cancelBtnText="Cancelar"
-        onDateChange={(time) => setStartTime(time)}
-        customStyles={{
-          dateInput: { borderWidth: 0 },
-        }}
+        is24Hour
+        locale="en_GB"
+        onConfirm={handleStartTimeConfirm}
+        onCancel={hideStartTimePicker}
+        onRequestClose={hideStartTimePicker}
+        onHide={hideStartTimePicker}
       />
-      <TouchableOpacity
-        style={{ marginBottom: 10, padding: 10, backgroundColor: '#f0f0f0' }}
-        onPress={() => this.endTimePicker.onPressDate()}
-      >
-        <Text>{endTime ? endTime.toLocaleTimeString() : 'Selecionar hora final'}</Text>
-      </TouchableOpacity>
-      <DatePicker
-        ref={(ref) => (this.endTimePicker = ref)}
-        style={{ width: 200, marginBottom: 10 }}
-        date={endTime}
+
+      <Button title="Insira a hora final" onPress={showEndTimePicker}/>
+      <Text>{endTime.toLocaleTimeString('en-GB')}</Text>
+      <DateTimePickerModal
+        isVisible={isEndTimePickerVisible}
         mode="time"
-        format="HH:mm"
-        confirmBtnText="Confirmar"
-        cancelBtnText="Cancelar"
-        onDateChange={(time) => setEndTime(time)}
-        customStyles={{
-          dateInput: { borderWidth: 0 },
-        }}
+        date={endTime}
+        is24Hour
+        locale="en_GB"
+        onConfirm={handleEndTimeConfirm}
+        onCancel={hideEndTimePicker}
+        onRequestClose={hideEndTimePicker}
+        onHide={hideEndTimePicker}
       />
       <TextInput
         style={{ marginBottom: 10, height: 100 }}
