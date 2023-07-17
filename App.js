@@ -42,11 +42,12 @@ export default function App(){
       </NavigationContainer>
     );
 
-  }else{
+  }
+  else{
     return(
 
         <View style={styleExterno.fundo}>
-            <View style={{alignItems:'center',borderColor:'#006bbd',borderWidth:3,borderRadius:30,marginTop:'2%'}}>
+            <View style={{alignItems:'center',borderColor:'#006bbd',borderWidth:3,borderRadius:30,marginTop:'2%',marginHorizontal:"5%"}}>
               <Text style={styleExterno.texto2}>INFORMAÇÕES DO DESENVOLVEDOR</Text>
               <View style={{flexDirection:'row', margin:5,borderColor:'#028cf5',borderWidth:3,justifyContent:'center',width:'50%',backgroundColor:'#fff',borderRadius:20,marginBottom:15}}>
                 <TouchableOpacity style ={{margin:10,flexDirection:'column',alignItems:'center',marginRight:15}}onPress={() => OpenAnything.Web('https://github.com/ttszin')}>
@@ -59,7 +60,7 @@ export default function App(){
                 </TouchableOpacity>
               </View>
           </View>
-            <View style={{flex:1,height:'100%',justifyContent:'center',marginBottom:'5%'}}>
+            <View style={{height:'55%',justifyContent:'center',marginBottom:'5%'}}>
               <KeyboardAvoidingView contentContainerStyle={styleExterno.box} behavior="position" enabled>
                 <StatusBar hidden = {true}/>
                 <Text style={styleExterno.texto}>Bem vindo ao APPROVE</Text>
@@ -90,5 +91,7 @@ export default function App(){
           </View>
     );
   }
+
+  
   
 }
