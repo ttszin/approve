@@ -1,31 +1,30 @@
 // src/Page1.js
 
 import React from 'react';
-import { StyleSheet, Text, View,Image,Button } from 'react-native';
+import { StyleSheet, Text, View,Image,Button,ScrollView, TouchableOpacity } from 'react-native';
 import * as OpenAnything from 'react-native-openanything';
 import { Constants } from 'expo';
-import { ScrollView } from 'react-native-gesture-handler';
+
 
 
 export default function pgs() {
   return(
 	<ScrollView>
-		<View style={{flex:1,paddingTop:20,alignItems:'center'}}>
-				<Text style={{fontSize:13}} /*LOCAL DO ARQUIVO1*/ >PG-00-BS-8002 </Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO1*/ >Trabalho Em Altura </Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao1" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1Qyk8SpCYeI0JJMdgJ2Blm5fZ0iaweeom/view?usp=sharing')}
-				>
-
-				</Button>
+		<View style={{flex:1,paddingTop:20}}>
+				<View>
+					<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO1*/ >Trabalho Em Altura </Text>
+					<View style={{margin:20,flex:1,width:150,height:150,borderWidth:2,borderColor:'red',padding:20,alignItems:'center',justifyContent:'center',flexDirection:'column',textAlign:'center'}}>
+						{/*<Text style={{fontSize:13,textAlign:'center'}} /*LOCAL DO ARQUIVO1 >PG-00-BS-8002 </Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1Qyk8SpCYeI0JJMdgJ2Blm5fZ0iaweeom/view?usp=sharing')}>
+							<Image style={{backgroundColor:'white',width:80,height:80,marginBottom:15,alignSelf:'center'}} 
+								source={
+									require('../../../icones/icons_pg/pgaltura.png')
+								}
+							/> 
+						</TouchableOpacity>
+						
+					</View>
+				</View>
 				
 				
 				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO2*/>PG-00-BS-8004</Text>
