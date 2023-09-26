@@ -4,210 +4,204 @@ import React from 'react';
 import { StyleSheet, Text, View,Image,Button,ScrollView, TouchableOpacity } from 'react-native';
 import * as OpenAnything from 'react-native-openanything';
 import { Constants } from 'expo';
-
+import styleExterno from '../../../styles.js';
+import style from 'react-native-datepicker/style.js';
 
 
 export default function pgs() {
-  return(
-	<ScrollView>
-		<View style={{flex:1,paddingTop:20}}>
+	return(
+		<ScrollView>
+			<View style={{flex:1,paddingTop:20,flexDirection:'row',flexWrap:'wrap',justifyContent:'center'}}>
+			
 				<View>
-					<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO1*/ >Trabalho Em Altura </Text>
-					<View style={{margin:20,flex:1,width:150,height:150,borderWidth:2,borderColor:'red',padding:20,alignItems:'center',justifyContent:'center',flexDirection:'column',textAlign:'center'}}>
+					{/* BOX DE ÍCONES */}
+					<View style={styleExterno.boxpg}>
 						{/*<Text style={{fontSize:13,textAlign:'center'}} /*LOCAL DO ARQUIVO1 >PG-00-BS-8002 </Text>*/}
 						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1Qyk8SpCYeI0JJMdgJ2Blm5fZ0iaweeom/view?usp=sharing')}>
-							<Image style={{backgroundColor:'white',width:80,height:80,marginBottom:15,alignSelf:'center'}} 
+							<Image style={styleExterno.imagepg} 
 								source={
 									require('../../../icones/icons_pg/pgaltura.png')
 								}
 							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO1*/ >Trabalho Em Altura </Text>
+							</View>
 						</TouchableOpacity>
 						
 					</View>
 				</View>
 				
-				
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO2*/>PG-00-BS-8004</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO2*/>Espaco Confinado_rev 2</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1jrEjexi-9lFzpBVzpuAaVM_5vE1UWc-5/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={
+									require('../../../icones/EspacoConfinado.png')
+								}
+							/>
+							<View style={styleExterno.viewtextpgs}>
+								<Text  ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Espaco Confinado</Text>
+							</View> 
+						</TouchableOpacity>
+					</View>
+				</View>
 
-				title='pdf' 
-				class="Botao2" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1jrEjexi-9lFzpBVzpuAaVM_5vE1UWc-5/view?usp=sharing')}
-				>
 
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO3*/>PG-00-BS-8005</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO3*/>Trabalho com Içamento de Carga - Rev 03</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao3" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/10g988U3XjUjRlLTX7RdWlMtDduqike1M/view?usp=sharing')}
-				>
-
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO4*/>PG-00-BS-8006</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO4*/>Trabalho a Quente_rev 2</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao4" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1jrEjexi-9lFzpBVzpuAaVM_5vE1UWc-5/view?usp=sharing')}
-				>
-
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO5*/>PG-00-BS-8008</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO5*/>Controle de Energias Perigosas_rev 2</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao5" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1rrJUa41NpgbhkHAVqolWN_Zg-LDlXsaf/view?usp=sharing')}
-				>
-
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO6*/>PG-00-BS-8009</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO6*/>Abertura de Linha</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao6" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1-TeAkrOvBqQ39MLHAVMNcywhlhWkL_fv/view?usp=sharing')}
-				>
-
-				</Button>
-				
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO7*/>PG-00-BS-8010</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO7*/>Permissão de Serviço_rev3</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao7" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/16mj3bYmcCfP-xgr3VhATly5_eb0HLqUg/view?usp=sharing')}
-				>
-
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO8*/>PG-00-BS-8011</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO8*/>Trabalho em Eletricidade</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao8" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1Hw3OQQ13Ec4pIEFDuQ5UOO1XDgnPbz4L/view?usp=sharing')}
-				>
-
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO9*/>PG-00-BS-8012</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO9*/>Equipamentos Móveis - Rev 03 (PT)</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao9" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1AfSiX4wnXc7c3MG4HoH0U7BeP2wrDUmO/view?usp=sharing')}
-				>
-
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO10*/>PG-00-BS-8013</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO10*/>Atividade de Campo (animais peçonhentos)_rev 2</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao10" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1V5vxdSNKKBOkinBrYGVzOmuDzhmWotIc/view?usp=sharing')}
-				>
-
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO11*/>PG-00-BS-8014</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO11*/>Mudança de Frente - Final_rev3</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao11" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/18wHhbKbx-6rveM4COhvVGDFQ6L-ZntFW/view?usp=sharing')}
-				>
-
-				</Button>
-
-				<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO12*/>PG-00-BS-8019</Text>
-				<Text style={{fontSize:13,marginBottom:10}} /*LOCAL DO ARQUIVO12*/>Segurança em Escadas Móveis Rev2021</Text>
-				<Image style={{backgroundColor:'white',width:88,height:88,marginBottom:15}} 
-					source={{
-						uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
-					}}
-			
-				/> 
-				<Button 
-				title='pdf' 
-				class="Botao12" 
-				onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/10fQ7qGc6WaHd_qk4xVlJgZ-xdcmJWnkO/view?usp=sharing')}
-				>
-
-				</Button>
-				<View style={{paddingBottom:100}}></View>
-				
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/10g988U3XjUjRlLTX7RdWlMtDduqike1M/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={
+									require('../../../icones/icamento.png')
+								}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Içamento de Carga</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1jrEjexi-9lFzpBVzpuAaVM_5vE1UWc-5/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={{
+									uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
+								}}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Trabalho a Quente</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1rrJUa41NpgbhkHAVqolWN_Zg-LDlXsaf/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={
+									require('../../../icones/energiasperigosas.png')
+								}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Controle de Energias Perigosas</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1-TeAkrOvBqQ39MLHAVMNcywhlhWkL_fv/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={{
+									uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
+								}}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Abertura de Linha</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/16mj3bYmcCfP-xgr3VhATly5_eb0HLqUg/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={{
+									uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
+								}}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Permissão de Serviço</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1Hw3OQQ13Ec4pIEFDuQ5UOO1XDgnPbz4L/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={{
+									uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
+								}}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Trabalho em Eletricidade</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}						
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1AfSiX4wnXc7c3MG4HoH0U7BeP2wrDUmO/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={
+									require('../../../icones/equipamentosMoveis.png')
+								}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Equipamentos Móveis</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/1V5vxdSNKKBOkinBrYGVzOmuDzhmWotIc/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={{
+									uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
+								}}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Animais Peçonhentos</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/18wHhbKbx-6rveM4COhvVGDFQ6L-ZntFW/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={{
+									uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
+								}}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Mudança de Frente</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>
+				<View>
+					<View style={styleExterno.boxpg}>
+						{/*<Text style={{fontSize:13,marginTop:50}} /*LOCAL DO ARQUIVO>PG-00-BS-8004</Text>*/}
+						<TouchableOpacity onPress={() => OpenAnything.Pdf('https://drive.google.com/file/d/10fQ7qGc6WaHd_qk4xVlJgZ-xdcmJWnkO/view?usp=sharing')}>
+							<Image style={styleExterno.imagepg}
+								source={{
+									uri:'https://play-lh.googleusercontent.com/9YV8kd_shPz89qUraU97RKOc7vt5XSw7PDxJqAQmmn2J9h8mwpL8mVtKMqD8puNa1oY=w96',
+								}}
+							/> 
+							<View style={styleExterno.viewtextpgs}>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Escadas Móveis</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+				</View>				
 			</View>
+			<View style={{paddingBottom:100}}></View>
 		</ScrollView>
-  );
+	);			
 }
 
 const styles = StyleSheet.create({

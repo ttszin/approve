@@ -195,5 +195,48 @@ export default styles = StyleSheet.create({
     borderTopWidth: 1,
   },
 
+  //===============================================================================================================
+  //===============================================================================================================
+  //===============================================================================================================
 
+  //TELA PGS
+
+  boxpg: {
+    margin:5,
+    flex:1,
+    width:150,
+    height:130,
+    borderWidth:2,
+    borderColor:'#6393f2',
+    borderRadius:2,
+    //backgroundColor:'#ffff',
+    alignItems:'center',
+    justifyContent:'center',
+    flexDirection:'column',
+    textAlign:'center',
+    flexWrap:'nowrap'
+  },
+
+  textpg:{
+    fontSize:11,
+    marginBottom:5,
+    textAlign:'center',
+    
+  },
+
+  imagepg:{
+    width:70,
+    height:70,
+    alignSelf:'center'
+  },
+
+  viewtextpgs:{
+    width:140,
+    height:25,
+    borderWidth:2,
+    borderRadius:30,
+    borderColor:'#6393f2',
+    justifyContent:'center',
+    marginTop:5
+  }
   });
