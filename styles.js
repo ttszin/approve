@@ -238,5 +238,30 @@ export default styles = StyleSheet.create({
     borderColor:'#6393f2',
     justifyContent:'center',
     marginTop:5
+  },
+
+  //===============================================================================================================
+  //===============================================================================================================
+  //===============================================================================================================
+
+  //TELA DE APONTAMENTO
+
+  buttonsellecttime:{
+    borderColor:'red',
+    borderWidth:2,
+    width:100,
+    height:50
+  },
+
+  inputsstyle:{
+    height:'100%',
+    width:'45%',
+    marginBottom: 10,
+    borderWidth:1,
+    borderColor:'#9e9e9e',
+    textAlign:'center'
   }
+
+
+
   });

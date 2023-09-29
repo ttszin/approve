@@ -97,21 +97,32 @@ export default function search({route,navigation}) {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
-      <TextInput
-        style={{ marginBottom: 10 }}
-        placeholder="Número de ordem"
-        value={orderNumber}
-        onChangeText={setOrderNumber}
-      />
-      <TextInput
-        style={{ marginBottom: 10 }}
-        placeholder="Número de matrícula"
-        value={registrationNumber}
-        onChangeText={setRegistrationNumber}
-      />
+      
+      <View style={{padding:10,width:'100%',height:'6%',flexDirection:'row'}}>
+        <Text>Insira o número da ordem : </Text>
+        <TextInput
+          style={styleExterno.inputsstyle}
+          placeholder="Número da ordem"
+          value={orderNumber}
+          onChangeText={setOrderNumber}
+        />
+      </View>
+      <View style={{padding:10,width:'100%',height:'6%',flexDirection:'row',justifyContent:'center',alignContent:'center'}}>
+        <Text>Insira o número de matrícula : </Text>
+        <TextInput
+          style={styleExterno.inputsstyle}
+          placeholder="Número de matrícula"
+          value={registrationNumber}
+          onChangeText={setRegistrationNumber}
+        />
+      </View>
+     
+    
 
       {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO INICIAL*/}
-      <TouchableOpacity style={{borderColor:'red',borderWidth:2,width:100,height:100}} onPress={showStartTimePicker}/>
+      <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showStartTimePicker}>
+	  	<Text>Selecione a hora</Text>
+	  </TouchableOpacity>
       <Text>{startTime.toLocaleTimeString('en-GB')}</Text>
       <DateTimePickerModal
         isVisible={isStartTimePickerVisible}
@@ -126,7 +137,9 @@ export default function search({route,navigation}) {
       />
 
       {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO FINAL*/}
-      <TouchableOpacity style={{borderColor:'red',borderWidth:2,width:100,height:100}} onPress={showEndTimePicker}/>
+      <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showEndTimePicker}>
+		<Text>Selecione a hora</Text>
+      </TouchableOpacity>
       <Text>{endTime.toLocaleTimeString('en-GB')}</Text>
       <DateTimePickerModal
         isVisible={isEndTimePickerVisible}

@@ -88,7 +88,7 @@ export default function pgs() {
 								}
 							/> 
 							<View style={styleExterno.viewtextpgs}>
-								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>Controle de Energias Perigosas</Text>
+								<Text ellipsizeMode = "clip" numberOfLines={1} style={styleExterno.textpg} /*LOCAL DO ARQUIVO2*/>CEP</Text>
 							</View>
 						</TouchableOpacity>
 					</View>
