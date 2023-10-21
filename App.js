@@ -31,7 +31,7 @@ export default function App(){
   
   const [counter, setCounter] = useState(0);
 	const [password, SetPassword] = useState('Insira a senha aqui');
-	var senha = 'riogrande.123';
+	var senha = 'Insira a senha aqui';
   console.disableYellowBox = true;
   
   if (counter===1 && password===senha){
