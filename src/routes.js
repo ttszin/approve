@@ -1,8 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {Entypo,Feather,Ionicons,MaterialIcons,MaterialCommunityIcons} from '@expo/vector-icons';
+import {Entypo,Feather,Ionicons,MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
+import { StyleSheet } from 'react-native';
 
-import search from './Pages/Search';
+import apontamentos from './Pages/Apontamentos';
 import pgs from './Pages/pgs';
 import Home from './Pages/Home';
 import icamento from './Pages/icamento';
@@ -36,6 +37,8 @@ import solicitantes_Altura from './Pages/solicitantesAltura';
 import solicitantes_Confinado from './Pages/solicitantesConfinado';
 import solicitantes_Moveis from './Pages/solcitantesMoveis';
 import solicitantes_Icamento from './Pages/solicitantesIcamento';
+import apontaementos from './Pages/Apontamentos/index';
+import { style } from 'react-native-datepicker/style.js';
 
 
 
@@ -96,6 +99,7 @@ export default function Routes(){
                 tabBarActiveTintColor:'#fff',
                 tabBarInactiveTintColor:'#fff',
                 tabBarShowLabel:'false',
+                tabBarLabelStyle: estilos.textoAba, 
                 tabBarStyle:{
                     position:'absolute',
                     backgroundColor:'#6393f2',
@@ -109,7 +113,6 @@ export default function Routes(){
                     borderRadius:4,
                     height:60,
                 },
-                
             }}
         >
             
@@ -130,16 +133,16 @@ export default function Routes(){
             />
 
             <Tab.Screen 
-            name="search" 
-            component={search} 
+            name="Apontamentos" 
+            component={apontamentos} 
             options={{
                 headerShown:false,
                 tabBarIcon:({size,color,focused})=> {
                     if(focused){
-                        return <Ionicons name="search" size={size} color={color}/>
+                        return <AntDesign name="pluscircle" size={24} color={color} />
                     }
 
-                    return <Ionicons name="search-outline" size={size} color={color}/>
+                    return <AntDesign name="pluscircleo" size={24} color="white" />
                 }   
             }}
             />
@@ -167,3 +170,10 @@ export default function Routes(){
     );
 }
 
+const estilos = StyleSheet.create({
+    textoAba: {
+        fontSize: 14,
+        lineHeight: 15,
+        marginBottom: 4,
+    }
+});

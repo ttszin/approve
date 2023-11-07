@@ -12,7 +12,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import 'firebase/compat/firestore';
 
-export default function search({route,navigation}) {
+export default function apontamentos({route,navigation}) {
 
   const [matricula,setMatricula] = useState('');
 
@@ -96,10 +96,9 @@ export default function search({route,navigation}) {
 
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
-      
-      <View style={{padding:10,width:'100%',height:'6%',flexDirection:'row'}}>
-        <Text>Insira o número da ordem : </Text>
+    <View style={{ gap:20,flex:1,paddingTop:"20%", paddingHorizontal: "5%",flexDirection:'column',alignItems:'center',backgroundColor:'#fff' }}>
+      <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center',justifyContent:'center'}}>
+        <Text style={{fontSize:20,fontWeight:500}}>Insira o número da ordem : </Text>
         <TextInput
           style={styleExterno.inputsstyle}
           placeholder="Número da ordem"
@@ -107,8 +106,8 @@ export default function search({route,navigation}) {
           onChangeText={setOrderNumber}
         />
       </View>
-      <View style={{padding:10,width:'100%',height:'6%',flexDirection:'row',justifyContent:'center',alignContent:'center'}}>
-        <Text>Insira o número de matrícula : </Text>
+      <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center',justifyContent:'center'}}>
+        <Text style={{fontSize:20,fontWeight:500}}>Insira o número de matrícula : </Text>
         <TextInput
           style={styleExterno.inputsstyle}
           placeholder="Número de matrícula"
@@ -120,38 +119,48 @@ export default function search({route,navigation}) {
     
 
       {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO INICIAL*/}
-      <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showStartTimePicker}>
-	  	<Text>Selecione a hora</Text>
-	  </TouchableOpacity>
-      <Text>{startTime.toLocaleTimeString('en-GB')}</Text>
-      <DateTimePickerModal
-        isVisible={isStartTimePickerVisible}
-        mode="time"
-        date={startTime}
-        is24Hour
-        locale="en_GB"
-        onConfirm={handleStartTimeConfirm}
-        onCancel={hideStartTimePicker}
-        onRequestClose={hideStartTimePicker}
-        onHide={hideStartTimePicker}
-      />
+
+      <View style={{gap:10,width:'100%',flexDirection:'row',alignContent:'center'}}>
+        <Text style={{fontSize:20,fontWeight:500}}>Selecione a hora inicial :</Text>
+        <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showStartTimePicker}>
+	  	    <AntDesign name="clockcircleo" size={24} color="black" />
+        </TouchableOpacity>
+        <Text style={{fontSize:17}}>{startTime.toLocaleTimeString('pt-BR')}</Text>
+        <DateTimePickerModal
+          isVisible={isStartTimePickerVisible}
+          mode="time"
+          date={startTime}
+          is24Hour
+          locale="pt-BR"
+          onConfirm={handleStartTimeConfirm}
+          onCancel={hideStartTimePicker}
+          onRequestClose={hideStartTimePicker}
+          onHide={hideStartTimePicker}
+        />
+      </View>
+      
 
       {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO FINAL*/}
-      <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showEndTimePicker}>
-		<Text>Selecione a hora</Text>
-      </TouchableOpacity>
-      <Text>{endTime.toLocaleTimeString('en-GB')}</Text>
-      <DateTimePickerModal
-        isVisible={isEndTimePickerVisible}
-        mode="time"
-        date={endTime}
-        is24Hour
-        locale="en_GB"
-        onConfirm={handleEndTimeConfirm}
-        onCancel={hideEndTimePicker}
-        onRequestClose={hideEndTimePicker}
-        onHide={hideEndTimePicker}
-      />
+      <View style={{gap:10,width:'100%',flexDirection:'row',alignContent:'center'}}>
+        <Text style={{fontSize:20,fontWeight:500}}>Selecione a hora final :</Text>
+        <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showEndTimePicker}>
+          <AntDesign name="clockcircleo" size={24} color="black" />  
+        </TouchableOpacity>  
+        <Text style={{fontSize:17,fontWeight:450}}>{endTime.toLocaleTimeString('pt-BR')}</Text>
+          <DateTimePickerModal
+            isVisible={isEndTimePickerVisible}
+            mode="time"
+            date={endTime}
+            is24Hour
+            locale="pt-BR"
+            onConfirm={handleEndTimeConfirm}
+            onCancel={hideEndTimePicker}
+            onRequestClose={hideEndTimePicker}
+            onHide={hideEndTimePicker}
+          />
+        
+      </View>
+      
       <TextInput
         style={{ marginBottom: 10, height: 100 }}
         placeholder="Texto longo"

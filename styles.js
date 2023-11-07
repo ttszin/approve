@@ -247,20 +247,16 @@ export default styles = StyleSheet.create({
   //TELA DE APONTAMENTO
 
   buttonsellecttime:{
-    borderColor:'red',
-    borderWidth:2,
-    width:100,
-    height:50
+    alignContent:'center'
   },
 
   inputsstyle:{
-    height:'100%',
-    width:'45%',
-    marginBottom: 10,
+    height:40,
     borderWidth:1,
     borderColor:'#9e9e9e',
-    textAlign:'center'
-  }
+    textAlign:'center',
+    borderRadius:30
+  },
 
 
 
