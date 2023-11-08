@@ -136,7 +136,7 @@ export default function apontamentos({route,navigation}) {
   return (
     <View style={{ gap:20,flex:1,paddingTop:"20%", paddingHorizontal: "5%",flexDirection:'column',alignItems:'center',backgroundColor:'#fff' }}>
       <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center',justifyContent:'center'}}>
-        <Text style={styleExterno.textos_desc}>Insira o número da ordem : </Text>
+        <Text style={styleExterno.texto_desc}>Insira o número da ordem : </Text>
         <TextInput
           style={styleExterno.inputsstyle}
           placeholder="Número da ordem"
@@ -145,7 +145,7 @@ export default function apontamentos({route,navigation}) {
         />
       </View>
       <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center',justifyContent:'center'}}>
-        <Text style={{fontSize:20,fontWeight:500}}>Insira o número de matrícula : </Text>
+        <Text style={styleExterno.texto_desc}>Insira o número de matrícula : </Text>
         <TextInput
           style={styleExterno.inputsstyle}
           placeholder="Número de matrícula"
@@ -159,7 +159,7 @@ export default function apontamentos({route,navigation}) {
       {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO INICIAL*/}
 
       <View style={{gap:10,width:'100%',flexDirection:'row',alignContent:'center'}}>
-        <Text style={{fontSize:20,fontWeight:500}}>Selecione a hora inicial :</Text>
+        <Text style={styleExterno.texto_desc}>Selecione a hora inicial :</Text>
         <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showStartTimePicker}>
 	  	    <AntDesign name="clockcircleo" size={24} color="black" />
         </TouchableOpacity>
@@ -179,23 +179,25 @@ export default function apontamentos({route,navigation}) {
       
 
       {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO FINAL*/}
-      <View style={{gap:10,width:'100%',flexDirection:'row',alignContent:'center'}}>
-        <Text style={{fontSize:20,fontWeight:500}}>Selecione a hora final :</Text>
-        <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showEndTimePicker}>
-          <AntDesign name="clockcircleo" size={24} color="black" />  
-        </TouchableOpacity>  
-        <Text style={{fontSize:17,fontWeight:450}}>{endTime.toLocaleTimeString('pt-BR')}</Text>
-          <DateTimePickerModal
-            isVisible={isEndTimePickerVisible}
-            mode="time"
-            date={endTime}
-            is24Hour
-            locale="pt-BR"
-            onConfirm={handleEndTimeConfirm}
-            onCancel={hideEndTimePicker}
-            onRequestClose={hideEndTimePicker}
-            onHide={hideEndTimePicker}
-          />
+      <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center'}}>
+        <Text style={styleExterno.texto_desc}>Selecione a hora final :</Text>
+        <View style={{flexDirection:'row', gap:10}}>
+          <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showEndTimePicker}>
+            <AntDesign name="clockcircleo" size={24} color="black" />  
+          </TouchableOpacity>  
+          <Text style={{fontSize:17,fontWeight:450}}>{endTime.toLocaleTimeString('pt-BR')}</Text>
+            <DateTimePickerModal
+              isVisible={isEndTimePickerVisible}
+              mode="time"
+              date={endTime}
+              is24Hour
+              locale="pt-BR"
+              onConfirm={handleEndTimeConfirm}
+              onCancel={hideEndTimePicker}
+              onRequestClose={hideEndTimePicker}
+              onHide={hideEndTimePicker}
+            />
+        </View>
         
       </View>
       

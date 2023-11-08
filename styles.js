@@ -249,6 +249,7 @@ export default styles = StyleSheet.create({
   buttonsellecttime:{
     alignContent:'center'
   },
+  
 
   inputsstyle:{
     height:40,
@@ -260,8 +261,7 @@ export default styles = StyleSheet.create({
   
   texto_desc:{
     fontSize:20,
-    fontWeight:500,
-    
+    fontFamily:'Roboto_500Medium'
   }
 
 
