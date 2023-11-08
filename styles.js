@@ -257,6 +257,12 @@ export default styles = StyleSheet.create({
     textAlign:'center',
     borderRadius:30
   },
+  
+  texto_desc:{
+    fontSize:20,
+    fontWeight:500,
+    
+  }
 
 
 

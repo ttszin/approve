@@ -11,8 +11,46 @@ import { LogBox } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import 'firebase/compat/firestore';
+import AppLoading from 'expo-app-loading';
+// Import fonte Roboto
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_100Thin_Italic,
+  Roboto_300Light,
+  Roboto_300Light_Italic,
+  Roboto_400Regular,
+  Roboto_400Regular_Italic,
+  Roboto_500Medium,
+  Roboto_500Medium_Italic,
+  Roboto_700Bold,
+  Roboto_700Bold_Italic,
+  Roboto_900Black,
+  Roboto_900Black_Italic,
+} from '@expo-google-fonts/roboto';
+
 
 export default function apontamentos({route,navigation}) {
+
+  const[ fontsLoaded ] = useFonts({
+    useFonts,
+    Roboto_100Thin,
+    Roboto_100Thin_Italic,
+    Roboto_300Light,
+    Roboto_300Light_Italic,
+    Roboto_400Regular,
+    Roboto_400Regular_Italic,
+    Roboto_500Medium,
+    Roboto_500Medium_Italic,
+    Roboto_700Bold,
+    Roboto_700Bold_Italic,
+    Roboto_900Black,
+    Roboto_900Black_Italic,
+  });
+
+  if(!fontsLoaded){
+    <AppLoading/>
+  }
 
   const [matricula,setMatricula] = useState('');
 
@@ -98,7 +136,7 @@ export default function apontamentos({route,navigation}) {
   return (
     <View style={{ gap:20,flex:1,paddingTop:"20%", paddingHorizontal: "5%",flexDirection:'column',alignItems:'center',backgroundColor:'#fff' }}>
       <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center',justifyContent:'center'}}>
-        <Text style={{fontSize:20,fontWeight:500}}>Insira o número da ordem : </Text>
+        <Text style={styleExterno.textos_desc}>Insira o número da ordem : </Text>
         <TextInput
           style={styleExterno.inputsstyle}
           placeholder="Número da ordem"
@@ -125,7 +163,7 @@ export default function apontamentos({route,navigation}) {
         <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showStartTimePicker}>
 	  	    <AntDesign name="clockcircleo" size={24} color="black" />
         </TouchableOpacity>
-        <Text style={{fontSize:17}}>{startTime.toLocaleTimeString('pt-BR')}</Text>
+        <Text style={{fontSize:17,fontWeight:450}}>{startTime.toLocaleTimeString('pt-BR')}</Text>
         <DateTimePickerModal
           isVisible={isStartTimePickerVisible}
           mode="time"

@@ -13,6 +13,7 @@ import {FuzzyBubbles_400Regular,FuzzyBubbles_700Bold,} from '@expo-google-fonts/
 import AppLoading from 'expo-app-loading';
 import {db} from './firebase.js';
 
+
 const Stack = createNativeStackNavigator()
 
 /*useEffect(()=>{
