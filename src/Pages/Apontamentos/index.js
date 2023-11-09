@@ -1,7 +1,7 @@
 // src/Page1.js
 
 import React, { useEffect, useState } from 'react';
-import { View, Button, Text,StyleSheet,TextInput,Alert,TouchableOpacity,FlatList  } from 'react-native';
+import { ScrollView,View, Button, Text,StyleSheet,TextInput,Alert,TouchableOpacity,FlatList,KeyboardAvoidingView,Platform  } from 'react-native';
 import {db} from '../../../firebase.js';
 import styleExterno from '../../../styles.js'
 //import {Picker} from '@react-native-picker/picker';
@@ -28,6 +28,10 @@ import {
   Roboto_900Black,
   Roboto_900Black_Italic,
 } from '@expo-google-fonts/roboto';
+
+
+
+
 
 
 export default function apontamentos({route,navigation}) {
@@ -58,8 +62,8 @@ export default function apontamentos({route,navigation}) {
 
   const [orderNumber, setOrderNumber] = useState('');
   const [registrationNumber, setRegistrationNumber] = useState('');
-  const [startTime, setStartTime] = useState(new Date());
-  const [endTime, setEndTime] = useState(new Date());
+  const [startTime, setStartTime] = useState(new Date(0));
+  const [endTime, setEndTime] = useState(new Date(0));
   const [text, setText] = useState('');
   const [isStartTimePickerVisible, setStartTimePickerVisible] = useState(false);
   const [isEndTimePickerVisible, setEndTimePickerVisible] = useState(false);
@@ -117,8 +121,8 @@ export default function apontamentos({route,navigation}) {
       // Limpar campos após o registro
       setOrderNumber('');
       setRegistrationNumber('');
-      setStartTime(new Date());
-      setEndTime(new Date());
+      setStartTime(new Date(0));
+      setEndTime(new Date(0));
       setText('');
     } catch (error) {
       Alert.alert('Erro', 'Ocorreu um erro ao registrar as informações: ' + error.message);
@@ -134,59 +138,63 @@ export default function apontamentos({route,navigation}) {
 
 
   return (
-    <View style={{ gap:20,flex:1,paddingTop:"20%", paddingHorizontal: "5%",flexDirection:'column',alignItems:'center',backgroundColor:'#fff' }}>
-      <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center',justifyContent:'center'}}>
-        <Text style={styleExterno.texto_desc}>Insira o número da ordem : </Text>
-        <TextInput
-          style={styleExterno.inputsstyle}
-          placeholder="Número da ordem"
-          value={orderNumber}
-          onChangeText={setOrderNumber}
-        />
-      </View>
-      <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center',justifyContent:'center'}}>
-        <Text style={styleExterno.texto_desc}>Insira o número de matrícula : </Text>
-        <TextInput
-          style={styleExterno.inputsstyle}
-          placeholder="Número de matrícula"
-          value={registrationNumber}
-          onChangeText={setRegistrationNumber}
-        />
-      </View>
-     
-    
-
-      {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO INICIAL*/}
-
-      <View style={{gap:10,width:'100%',flexDirection:'row',alignContent:'center'}}>
-        <Text style={styleExterno.texto_desc}>Selecione a hora inicial :</Text>
-        <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showStartTimePicker}>
-	  	    <AntDesign name="clockcircleo" size={24} color="black" />
-        </TouchableOpacity>
-        <Text style={{fontSize:17,fontWeight:450}}>{startTime.toLocaleTimeString('pt-BR')}</Text>
-        <DateTimePickerModal
-          isVisible={isStartTimePickerVisible}
-          mode="time"
-          date={startTime}
-          is24Hour
-          locale="pt-BR"
-          onConfirm={handleStartTimeConfirm}
-          onCancel={hideStartTimePicker}
-          onRequestClose={hideStartTimePicker}
-          onHide={hideStartTimePicker}
-        />
-      </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'} enabled
+      style={styleExterno.box_main}
+    >
+      <ScrollView contentContainerStyle={styleExterno.container}>
+        <View style={styleExterno.interface}>
+          <Text style={styleExterno.texto_desc}>Insira o número da ordem : </Text>
+          <TextInput
+            style={styleExterno.inputsstyle}
+            placeholder="Número da ordem"
+            value={orderNumber}
+            onChangeText={setOrderNumber}
+          />
+        </View>
+        <View style={styleExterno.interface}>
+          <Text style={styleExterno.texto_desc}>Insira o número de matrícula</Text>
+          <TextInput
+            style={styleExterno.inputsstyle}
+            placeholder="Número de matrícula"
+            value={registrationNumber}
+            onChangeText={setRegistrationNumber}
+          />
+        </View>
+      
       
 
-      {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO FINAL*/}
-      <View style={{gap:10,width:'100%',flexDirection:'column',alignContent:'center'}}>
-        <Text style={styleExterno.texto_desc}>Selecione a hora final :</Text>
-        <View style={{flexDirection:'row', gap:10}}>
-          <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showEndTimePicker}>
-            <AntDesign name="clockcircleo" size={24} color="black" />  
-          </TouchableOpacity>  
-          <Text style={{fontSize:17,fontWeight:450}}>{endTime.toLocaleTimeString('pt-BR')}</Text>
+        {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO INICIAL*/}
+
+        <View style={styleExterno.interface}>
+          <Text style={styleExterno.texto_desc}>Selecione a hora inicial</Text>
+          <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showStartTimePicker}>
+            <AntDesign name="clockcircleo" size={20} color="#1883c9" />
+            <Text style={styleExterno.time_selected}>{startTime.toLocaleTimeString('pt-BR')}</Text>
             <DateTimePickerModal
+              display='clock'
+              isVisible={isStartTimePickerVisible}
+              mode="time"
+              date={startTime}
+              is24Hour
+              locale="pt-BR"
+              onConfirm={handleStartTimeConfirm}
+              onCancel={hideStartTimePicker}
+              onRequestClose={hideStartTimePicker}
+              onHide={hideStartTimePicker}
+            />
+          </TouchableOpacity>
+        </View>
+        
+
+        {/*BOTÃO PARA MOSTRAR O SELETOR DE HORÁRIO FINAL*/}
+        <View style={styleExterno.interface}>
+          <Text style={styleExterno.texto_desc}>Selecione a hora final</Text>
+          <TouchableOpacity style={styleExterno.buttonsellecttime} onPress={showEndTimePicker}>
+            <AntDesign name="clockcircleo" size={20} color="#1883c9" />  
+            <Text style={styleExterno.time_selected}>{endTime.toLocaleTimeString('pt-BR')}</Text>
+            <DateTimePickerModal
+              display='clock'
               isVisible={isEndTimePickerVisible}
               mode="time"
               date={endTime}
@@ -197,23 +205,30 @@ export default function apontamentos({route,navigation}) {
               onRequestClose={hideEndTimePicker}
               onHide={hideEndTimePicker}
             />
+          </TouchableOpacity>  
+        </View>
+
+       
+        <View style={styleExterno.interface}>
+          <Text style={styleExterno.texto_desc}>Insira o Texto longo</Text>
         </View>
         
-      </View>
-      
-      <TextInput
-        style={{ marginBottom: 10, height: 100 }}
-        placeholder="Texto longo"
-        multiline
-        value={text}
-        onChangeText={setText}
-      />
-      {/*BOTÃO PARA ENVIAR REGISTRO*/}
-      <Button title="Registrar" onPress={handleSubmit} />
-      <Button title = "Consultar" onPress={searchAccess}/>
+        
+        <TextInput
+          style={styleExterno.long_text}
+          placeholder="Texto longo"
+          multiline
+          value={text}
+          onChangeText={setText}
+        />
+        {/*BOTÃO PARA ENVIAR REGISTRO*/}
+        <TouchableOpacity style={styleExterno.btn_envio}>
+          <Text>enviar</Text>
+        </TouchableOpacity>
 
-      
-    </View>
+
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 

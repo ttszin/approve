@@ -246,24 +246,71 @@ export default styles = StyleSheet.create({
 
   //TELA DE APONTAMENTO
 
+  box_main:{
+    flex:1,
+    gap:20,
+    paddingTop:"5%", 
+    paddingHorizontal: "5%",
+    flexDirection:'column',
+    backgroundColor:'#fff',
+  },
+
+
+  container: {
+    flex: 1,
+    flexGrow: 1,
+    gap:20
+  },
+
+  interface:{
+    gap:10,
+    width:'100%',
+    flexDirection:'column',
+  },
+
   buttonsellecttime:{
-    alignContent:'center'
+    flexWrap:'nowrap',
+    gap:5,
+    flexDirection:'row',
+    
   },
   
-
   inputsstyle:{
     height:40,
     borderWidth:1,
     borderColor:'#9e9e9e',
     textAlign:'center',
-    borderRadius:30
+    borderRadius:30,
+    fontFamily:'Roboto_400Regular'
   },
   
   texto_desc:{
     fontSize:20,
     fontFamily:'Roboto_500Medium'
-  }
+  },
 
+  time_selected:{
+    fontSize:17,
+    fontWeight:450,
+    color:'#1883c9',
+    fontFamily:'Roboto_400Regular'
+  },
 
+  long_text:{
+    marginBottom: 10,
+    width:'100%',
+    height: '20%',
+    borderRadius:30,
+    borderColor:'#9e9e9e',
+    borderWidth:1,
+    fontFamily:'Roboto_400Regular',
+    textAlign:'center',
+    padding:15
+  },
 
-  });
+  btn_envio:{
+    width:'10%',
+    height:'10%'
+  },
+  
+});

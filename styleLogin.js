@@ -16,7 +16,6 @@ export default styles = StyleSheet.create({
     texto:{
         color:'#ffffff',
         fontSize:28,
-        fontFamily:'FuzzyBubbles_700Bold',
         width:'100%',
         textAlign:'center',
         paddingBottom:30,
@@ -25,7 +24,6 @@ export default styles = StyleSheet.create({
     texto2:{
         color:'#ffffff',
         fontSize:16,
-        fontFamily:'FuzzyBubbles_400Regular',
         textAlign:'center',
         marginBottom:10
     },

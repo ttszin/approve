@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Entypo,Feather,Ionicons,MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Animated } from 'react-native';
 
 import apontamentos from './Pages/Apontamentos';
 import pgs from './Pages/pgs';

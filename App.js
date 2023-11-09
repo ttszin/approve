@@ -9,9 +9,9 @@ import 'react-native-gesture-handler';
 import styleExterno from './styleLogin.js';
 import * as OpenAnything from 'react-native-openanything';
 import { useFonts } from 'expo-font';
-import {FuzzyBubbles_400Regular,FuzzyBubbles_700Bold,} from '@expo-google-fonts/fuzzy-bubbles';
 import AppLoading from 'expo-app-loading';
 import {db} from './firebase.js';
+
 
 
 const Stack = createNativeStackNavigator()
@@ -20,19 +20,13 @@ const Stack = createNativeStackNavigator()
   
 },[])*/
 
-export default function App(){
-  const[ fontsLoaded ] = useFonts({
-    FuzzyBubbles_400Regular,
-    FuzzyBubbles_700Bold
-  });
 
-  if(!fontsLoaded){
-      <AppLoading/>
-  }
-  
+
+
+export default function App(){
   const [counter, setCounter] = useState(0);
 	const [password, SetPassword] = useState('Insira a senha aqui');
-	var senha = 'Insira a senha aqui';
+	var senha = 'riogrande.123';
   console.disableYellowBox = true;
   
   if (counter===1 && password===senha){
