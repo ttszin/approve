@@ -297,7 +297,6 @@ export default styles = StyleSheet.create({
   },
 
   long_text:{
-    marginBottom: 10,
     width:'100%',
     height: '20%',
     borderRadius:30,
@@ -309,8 +308,13 @@ export default styles = StyleSheet.create({
   },
 
   btn_envio:{
-    width:'10%',
-    height:'10%'
+    alignItems:'center',
+    width:'25%',
+    paddingVertical:15,
+    borderRadius:10,
+    borderColor:'#6393f2',
+    borderWidth:1,
+    backgroundColor:'#6393f2'
   },
   
 });

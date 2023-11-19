@@ -222,9 +222,12 @@ export default function apontamentos({route,navigation}) {
           onChangeText={setText}
         />
         {/*BOTÃO PARA ENVIAR REGISTRO*/}
-        <TouchableOpacity style={styleExterno.btn_envio}>
-          <Text>enviar</Text>
-        </TouchableOpacity>
+        <View style={{justifyContent:'center',alignItems:'center'}}>
+          <TouchableOpacity style={styleExterno.btn_envio}>
+            <Text style={{fontFamily:'Roboto_400Regular',fontWeight:'bold',fontSize:15,color:'#fff'}}>Enviar</Text>
+          </TouchableOpacity>
+        </View>
+        
 
 
       </ScrollView>
